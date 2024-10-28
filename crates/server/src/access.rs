@@ -11,7 +11,7 @@ use prefix_trie::{Prefix, PrefixSet};
 ///   denied networks are specified, then allowed networks will only apply if the deny rule matched, but otherwise the
 ///   address will be allowed.
 #[derive(Default)]
-pub(crate) struct AccessControl {
+pub struct AccessControl {
     ipv4: InnerAccessControl<Ipv4Net>,
     ipv6: InnerAccessControl<Ipv6Net>,
 }
