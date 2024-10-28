@@ -12,15 +12,15 @@ use crate::proto::op::ResponseCode;
 /// Result of an Update operation
 pub type UpdateResult<T> = Result<T, ResponseCode>;
 
-mod auth_lookup;
+pub mod auth_lookup;
 #[allow(clippy::module_inception)]
-mod authority;
-pub(crate) mod authority_object;
-mod catalog;
-mod error;
-pub(crate) mod message_request;
-mod message_response;
-mod zone_type;
+pub mod authority;
+pub mod authority_object;
+pub mod catalog;
+pub mod error;
+pub mod message_request;
+pub mod message_response;
+pub mod zone_type;
 
 pub use self::auth_lookup::{
     AnyRecords, AuthLookup, AuthLookupIter, LookupRecords, LookupRecordsIter,
