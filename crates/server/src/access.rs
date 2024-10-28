@@ -18,7 +18,7 @@ pub struct AccessControl {
 
 impl AccessControl {
     /// Insert a new network that is denied access to the server
-    pub(crate) fn insert_deny(&mut self, networks: &[IpNet]) {
+    pub fn insert_deny(&mut self, networks: &[IpNet]) {
         for network in networks {
             match network {
                 IpNet::V4(v4) => {
@@ -32,7 +32,7 @@ impl AccessControl {
     }
 
     /// Insert a new network that is allowed access to the server
-    pub(crate) fn insert_allow(&mut self, networks: &[IpNet]) {
+    pub fn insert_allow(&mut self, networks: &[IpNet]) {
         for network in networks {
             match network {
                 IpNet::V4(v4) => {
@@ -55,7 +55,7 @@ impl AccessControl {
     ///
     /// Ok if access is granted, Err otherwise
     #[must_use]
-    pub(crate) fn allow(&self, ip: IpAddr) -> bool {
+    pub fn allow(&self, ip: IpAddr) -> bool {
         match ip {
             IpAddr::V4(v4) => {
                 let v4 = Ipv4Net::from(v4);
