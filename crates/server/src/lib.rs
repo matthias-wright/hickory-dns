@@ -54,7 +54,7 @@ pub use hickory_recursor as recursor;
 #[cfg(any(feature = "resolver", feature = "recursor"))]
 pub use hickory_resolver as resolver;
 
-mod access;
+pub mod access;
 pub mod authority;
 mod error;
 pub use error::{ConfigError, ConfigErrorKind, PersistenceError, PersistenceErrorKind};
