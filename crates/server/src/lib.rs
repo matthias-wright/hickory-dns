@@ -54,7 +54,7 @@ pub use hickory_recursor as recursor;
 #[cfg(feature = "hickory-resolver")]
 pub use hickory_resolver as resolver;
 
-mod access;
+pub mod access;
 pub mod authority;
 pub mod error;
 pub mod server;
