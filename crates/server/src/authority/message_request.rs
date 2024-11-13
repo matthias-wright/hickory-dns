@@ -177,7 +177,7 @@ impl MessageRequest {
     }
 
     /// Returns the original query received from the client
-    pub(crate) fn raw_query(&self) -> &WireQuery {
+    pub fn raw_query(&self) -> &WireQuery {
         &self.query
     }
 }
