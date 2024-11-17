@@ -5,8 +5,8 @@
 // https://opensource.org/licenses/MIT>, at your option. This file may not be
 // copied, modified, or distributed except according to those terms.
 
+use serde::{Deserialize, Serialize};
 use std::{iter::Chain, slice::Iter, vec};
-
 use tracing::{info, warn};
 
 use crate::rr::{DNSClass, Name, RData, Record, RecordType};
@@ -15,6 +15,7 @@ use crate::rr::{DNSClass, Name, RData, Record, RecordType};
 use crate::dnssec::SupportedAlgorithms;
 
 /// Set of resource records associated to a name and type
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct RecordSet {
     name: Name,

@@ -5,11 +5,12 @@
 // https://opensource.org/licenses/MIT>, at your option. This file may not be
 // copied, modified, or distributed except according to those terms.
 
+use crate::rr::{LowerName, RecordType};
+use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 
-use crate::rr::{LowerName, RecordType};
-
 /// Accessor key for RRSets in the Authority.
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Eq, PartialEq, Debug, Hash, Clone)]
 pub struct RrKey {
     /// Matches the name in the Record of this key
