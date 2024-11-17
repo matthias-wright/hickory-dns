@@ -15,8 +15,8 @@ use crate::rr::{DNSClass, Name, RData, Record, RecordType};
 use crate::dnssec::SupportedAlgorithms;
 
 /// Set of resource records associated to a name and type
-#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
-#[derive(Clone, Debug, PartialEq, Eq)]
+//#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 pub struct RecordSet {
     name: Name,
     record_type: RecordType,
