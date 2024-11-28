@@ -8,6 +8,10 @@
 //! signer is a structure for performing many of the signing processes of the DNSSEC specification
 use tracing::debug;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
+#[cfg(feature = "dnssec")]
 use std::time::Duration;
 
 use super::{PublicKey, SigningKey};
@@ -225,6 +229,8 @@ use crate::{
 ///    Note that the response received by the resolver should include all
 ///    NSEC RRs needed to authenticate the response (see Section 3.1.3).
 /// ```
+
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[cfg(feature = "dnssec")]
 pub struct SigSigner {
     // TODO: this should really be a trait and generic struct over KEY and DNSKEY
