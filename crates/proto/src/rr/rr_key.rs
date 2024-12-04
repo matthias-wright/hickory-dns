@@ -9,7 +9,11 @@ use std::cmp::Ordering;
 
 use crate::rr::{LowerName, RecordType};
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 /// Accessor key for RRSets in the Authority.
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Eq, PartialEq, Debug, Hash, Clone)]
 pub struct RrKey {
     /// Matches the name in the Record of this key

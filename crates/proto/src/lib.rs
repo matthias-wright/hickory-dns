@@ -43,7 +43,7 @@ macro_rules! try_ready_stream {
 
 #[cfg(feature = "dnssec")]
 pub mod dnssec;
-mod error;
+pub mod error;
 #[cfg(feature = "dns-over-https-rustls")]
 pub mod h2;
 #[cfg(feature = "dns-over-h3")]

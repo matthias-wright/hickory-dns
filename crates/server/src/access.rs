@@ -11,14 +11,14 @@ use prefix_trie::{Prefix, PrefixSet};
 ///   denied networks are specified, then allowed networks will only apply if the deny rule matched, but otherwise the
 ///   address will be allowed.
 #[derive(Default)]
-pub(crate) struct AccessControl {
+pub struct AccessControl {
     ipv4: InnerAccessControl<Ipv4Net>,
     ipv6: InnerAccessControl<Ipv6Net>,
 }
 
 impl AccessControl {
     /// Insert a new network that is denied access to the server
-    pub(crate) fn insert_deny(&mut self, networks: &[IpNet]) {
+    pub fn insert_deny(&mut self, networks: &[IpNet]) {
         for network in networks {
             match network {
                 IpNet::V4(v4) => {
@@ -32,7 +32,7 @@ impl AccessControl {
     }
 
     /// Insert a new network that is allowed access to the server
-    pub(crate) fn insert_allow(&mut self, networks: &[IpNet]) {
+    pub fn insert_allow(&mut self, networks: &[IpNet]) {
         for network in networks {
             match network {
                 IpNet::V4(v4) => {
@@ -55,7 +55,7 @@ impl AccessControl {
     ///
     /// Ok if access is granted, Err otherwise
     #[must_use]
-    pub(crate) fn allow(&self, ip: IpAddr) -> bool {
+    pub fn allow(&self, ip: IpAddr) -> bool {
         match ip {
             IpAddr::V4(v4) => {
                 let v4 = Ipv4Net::from(v4);

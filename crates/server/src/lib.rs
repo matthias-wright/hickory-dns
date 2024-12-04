@@ -54,7 +54,7 @@ pub use hickory_recursor as recursor;
 #[cfg(any(feature = "resolver", feature = "recursor"))]
 pub use hickory_resolver as resolver;
 
-mod access;
+pub mod access;
 pub mod authority;
 mod error;
 pub use error::{ConfigError, ConfigErrorKind, PersistenceError, PersistenceErrorKind};
@@ -67,12 +67,12 @@ pub use self::server::ServerFuture;
 #[cfg(feature = "dnssec")]
 pub mod dnssec {
     use crate::proto::dnssec::Nsec3HashAlgorithm;
-    use serde::Deserialize;
+    use serde::{Deserialize, Serialize};
     use std::sync::Arc;
 
     /// The kind of non-existence proof provided by the nameserver
     #[cfg(feature = "dnssec")]
-    #[derive(Debug, Deserialize, Clone, PartialEq, Eq)]
+    #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
     #[serde(rename_all = "lowercase")]
     pub enum NxProofKind {
         /// Use NSEC

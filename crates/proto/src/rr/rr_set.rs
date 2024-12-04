@@ -11,10 +11,14 @@ use tracing::{info, warn};
 
 use crate::rr::{DNSClass, Name, RData, Record, RecordType};
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 #[cfg(feature = "dnssec")]
 use crate::dnssec::SupportedAlgorithms;
 
 /// Set of resource records associated to a name and type
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct RecordSet {
     name: Name,

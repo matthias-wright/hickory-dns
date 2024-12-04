@@ -177,7 +177,7 @@ impl MessageRequest {
     }
 
     /// Returns the original query received from the client
-    pub(crate) fn raw_query(&self) -> &WireQuery {
+    pub fn raw_query(&self) -> &WireQuery {
         &self.query
     }
 }
@@ -303,7 +303,7 @@ impl Queries {
 
 /// A query with the original bytes stored from the query
 #[derive(Debug, PartialEq)]
-pub(crate) struct WireQuery {
+pub struct WireQuery {
     query: LowerQuery,
     original: Box<[u8]>,
 }

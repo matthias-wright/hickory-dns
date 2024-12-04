@@ -72,7 +72,6 @@ impl Digest {
     }
 }
 
-#[cfg(any(feature = "dnssec-openssl", feature = "dnssec-ring"))]
 pub use self::key_format::KeyFormat;
 pub use self::signer::SigSigner;
 

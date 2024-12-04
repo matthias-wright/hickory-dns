@@ -15,7 +15,7 @@ pub type UpdateResult<T> = Result<T, ResponseCode>;
 mod auth_lookup;
 #[allow(clippy::module_inception)]
 mod authority;
-pub(crate) mod authority_object;
+pub mod authority_object;
 mod catalog;
 mod error;
 pub(crate) mod message_request;

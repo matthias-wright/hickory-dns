@@ -460,7 +460,7 @@ impl Nsec3QueryInfo<'_> {
 
     /// Computes the hashed owner name from a given name. That is, the hash of the given name,
     /// followed by the zone name.
-    pub(crate) fn get_hashed_owner_name(
+    pub fn get_hashed_owner_name(
         &self,
         name: &LowerName,
         zone: &Name,

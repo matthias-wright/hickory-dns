@@ -76,6 +76,8 @@
 //!     `wildcard_encloser` == `*.soa.name`
 //!
 
+use std::hash::Hash;
+
 use super::proof_log_yield;
 use crate::{
     dnssec::{rdata::NSEC3, Nsec3HashAlgorithm, Proof},
